@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1240">
+  <meta name="description" content="Austral Growth: estrategia, contenido y marketing digital para negocios que quieren crecer.">
+  <title>Austral Growth · Marketing digital</title>
+  <style>
+    :root{
+      --navy:#0a1240;
+      --navy-2:#101f50;
+      --ink:#17213f;
+      --muted:#65708f;
+      --paper:#f7f9fd;
+      --line:#e5eaf5;
+      --white:#fff;
+      --cyan:#1ad5ee;
+      --blue:#1479e8;
+      --violet:#7623d4;
+      --pink:#eb24c7;
+      --grad:linear-gradient(100deg,var(--cyan) 0%,var(--blue) 36%,var(--violet) 70%,var(--pink) 100%);
+      --shadow:0 18px 45px rgba(12,27,75,.14);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--white);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--blue);font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .eyebrow::before{content:"";width:28px;height:3px;border-radius:999px;background:var(--grad)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border:1px solid transparent;border-radius:999px;padding:.9rem 1.25rem;font-weight:750;font-size:.94rem;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{color:#fff;background:var(--grad);box-shadow:0 10px 24px rgba(40,76,207,.28)}
+    .btn-primary:hover{box-shadow:0 14px 28px rgba(40,76,207,.36)}
+    .btn-secondary{border-color:rgba(255,255,255,.42);color:#fff;background:rgba(255,255,255,.07)}
+    .btn-light{border-color:#cfd8ef;color:var(--navy);background:#fff}
+
+    /* Navegación */
+    .site-header{position:sticky;top:0;z-index:30;background:rgba(10,18,64,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.09)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:inline-flex;align-items:center;gap:10px;color:#fff;font-weight:850;letter-spacing:.035em;white-space:nowrap}
+    .brand span span{font-weight:850}
+    .brand-mark{width:52px;height:auto;flex:0 0 auto}
+    .nav-links{display:flex;align-items:center;gap:24px}
+    .nav-links>a:not(.btn){color:#e5ebff;font-weight:650;font-size:.91rem}
+    .nav-links>a:not(.btn):hover{color:var(--cyan)}
+    .nav-links .btn{padding:.65rem 1rem;font-size:.85rem}
+    .menu-toggle{display:none;border:0;background:transparent;color:white;width:46px;height:46px;border-radius:12px;cursor:pointer}
+    .menu-toggle span{display:block;width:22px;height:2px;margin:5px auto;background:currentColor;border-radius:3px}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;background:var(--navy);color:#fff;padding:76px 0 60px}
+    .hero::before,.hero::after{content:"";position:absolute;pointer-events:none;border-radius:50%;filter:blur(5px)}
+    .hero::before{width:540px;height:540px;right:-260px;top:-190px;background:radial-gradient(circle,rgba(23,121,232,.52),transparent 68%)}
+    .hero::after{width:430px;height:430px;left:-220px;bottom:-255px;background:radial-gradient(circle,rgba(235,36,199,.28),transparent 70%)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:48px}
+    .hero h1{margin:15px 0 18px;max-width:700px;font-size:clamp(3rem,6.1vw,5.8rem);line-height:.95;letter-spacing:-.075em}
+    .hero h1 span{display:inline-block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy>p{max-width:620px;margin:0;color:#d3dcf5;font-size:clamp(1.02rem,1.5vw,1.14rem)}
+    .proof{display:flex;align-items:flex-start;gap:12px;margin-top:24px;max-width:560px;color:#dbe6ff;font-size:.9rem}
+    .proof a{display:inline-flex;align-items:center;gap:8px;color:#fff;font-weight:800;white-space:nowrap}
+    .proof a:hover{color:var(--cyan)}
+    .proof svg{width:20px;height:20px;fill:currentColor}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .stats{display:flex;flex-wrap:wrap;gap:25px;margin-top:45px;padding-top:25px;border-top:1px solid rgba(255,255,255,.16)}
+    .stat{min-width:130px}
+    .stat strong{display:block;font-size:1.55rem;line-height:1;font-weight:850}
+    .stat small{color:#b8c6e9;font-size:.78rem}
+    .hero-art{display:grid;place-items:center;min-height:390px}
+    .hero-logo{display:block;width:min(100%,460px);height:auto;filter:drop-shadow(0 24px 30px rgba(1,7,33,.38))}
+
+    /* Secciones */
+    .section{padding:92px 0}
+    .section-head{max-width:700px}
+    .section h2{margin:11px 0 0;color:var(--navy-2);font-size:clamp(2rem,3.8vw,3.35rem);line-height:1.03;letter-spacing:-.055em}
+    .section-head>p{max-width:650px;margin:17px 0 0;color:var(--muted);font-size:1.03rem}
+    .services{background:var(--paper)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
+    .card{padding:25px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;transition:transform .2s ease,box-shadow .2s ease}
+    .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .card-index{font-size:.78rem;font-weight:850;letter-spacing:.1em}
+    .card h3{margin:12px 0 6px;font-size:1.12rem;color:var(--navy-2)}
+    .card p{margin:0;color:var(--muted);font-size:.94rem}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+    .step{position:relative;padding:6px 5px 0 26px;border-left:2px solid #d9e0f3}
+    .step strong{display:block;margin-left:-44px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:.94rem;box-shadow:0 7px 16px rgba(21,100,219,.25)}
+    .step h3{margin:14px 0 4px;color:var(--navy-2);font-size:1.16rem}
+    .step p{margin:0;color:var(--muted)}
+    .month{margin-top:46px;padding:24px;border-radius:var(--radius);background:linear-gradient(135deg,#0d2157,#142c6a);color:#fff}
+    .month>span{display:block;margin-bottom:14px;font-size:.74rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#b7c9f7}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:.52rem .75rem;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);font-size:.87rem}
+
+    /* Planes */
+    .plans{background:var(--paper)}
+    .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px;align-items:stretch}
+    .plan{position:relative;display:flex;flex-direction:column;padding:28px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 5px 16px rgba(17,38,89,.035)}
+    .plan.featured{border:2px solid #2a83e9;box-shadow:0 24px 50px rgba(20,92,201,.17)}
+    .tag{align-self:flex-start;padding:.34rem .58rem;border-radius:999px;background:#eef3fe;color:#1d61be;font-size:.72rem;font-weight:850;letter-spacing:.03em}
+    .featured .tag{color:#fff;background:var(--grad)}
+    .plan h3{margin:17px 0 7px;color:var(--navy-2);font-size:1.45rem;line-height:1.1}
+    .old-price{min-height:24px;color:#8993ac;font-size:.93rem;text-decoration:line-through}
+    .price{margin:4px 0 11px;color:var(--navy);font-size:clamp(2rem,3vw,2.55rem);font-weight:880;line-height:1;letter-spacing:-.055em}
+    .price span{font-size:.82rem;font-weight:700;letter-spacing:0;color:#66718e}
+    .plan .intro{margin:0 0 18px;color:var(--muted);font-size:.92rem;min-height:64px}
+    .plan ul{display:grid;gap:10px;margin:0 0 25px;padding:0;list-style:none;color:#36415e;font-size:.92rem}
+    .plan li{position:relative;padding-left:24px}
+    .plan li::before{content:"✓";position:absolute;left:0;top:-1px;color:#1485e9;font-weight:900}
+    .plan .btn{margin-top:auto}
+    .plan-note{margin:19px 0 0;color:#7b859f;text-align:center;font-size:.79rem}
+
+    /* Contacto */
+    .contact{position:relative;overflow:hidden;background:var(--navy);color:#fff}
+    .contact::after{content:"";position:absolute;width:420px;height:420px;right:-210px;bottom:-260px;border-radius:50%;background:radial-gradient(circle,rgba(26,213,238,.36),transparent 70%)}
+    .contact-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:end}
+    .contact h2{color:#fff}
+    .contact .eyebrow{color:var(--cyan)}
+    .contact-text{margin:17px 0 0;max-width:650px;color:#ced9f6;font-size:1.05rem}
+    .contact-people{display:grid;gap:12px}
+    .contact-card{padding:25px;border:1px solid rgba(255,255,255,.18);border-radius:24px;background:rgba(255,255,255,.08)}
+    .contact-card small{display:block;color:#b9c7e8;font-weight:700}
+    .contact-card strong{display:block;margin:7px 0 2px;font-size:1.15rem}
+    .contact-card .role{display:block;color:#c8d4f1;font-size:.9rem}
+    .contact-card .phone{display:inline-block;margin-top:7px;color:#fff;font-weight:850}
+    .contact-card .phone:hover,.contact-card .whatsapp:hover{color:var(--cyan)}
+    .contact-card .whatsapp{display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:#fff;font-weight:850}
+    .contact-card .whatsapp svg{width:20px;height:20px;fill:currentColor}
+
+    .footer{padding:24px 0;background:#070d2c;color:#aeb9d8;font-size:.84rem}
+    .footer .container{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .footer a{color:#fff;font-weight:750}
+
+    @media (max-width:850px){
+      .nav-links{position:absolute;left:20px;right:20px;top:66px;display:none;flex-direction:column;align-items:stretch;gap:0;padding:12px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:#0d1949;box-shadow:0 22px 45px rgba(0,0,0,.25)}
+      .nav-links.open{display:flex}
+      .nav-links>a{padding:.78rem .85rem}
+      .nav-links .btn{margin:.35rem .2rem .2rem;text-align:center}
+      .menu-toggle{display:block}
+      .hero{padding-top:58px}
+      .hero-grid,.contact-inner{grid-template-columns:1fr}
+      .hero-art{min-height:auto;order:-1}
+      .hero-logo{width:min(100%,355px);margin-bottom:6px}
+      .cards,.plan-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:580px){
+      .container{width:min(100% - 32px,1120px)}
+      .nav{min-height:66px}
+      .brand-mark{width:39px;height:39px}
+      .hero{padding:48px 0}
+      .hero h1{font-size:clamp(3rem,15vw,4.45rem)}
+      .proof{flex-direction:column;gap:5px}
+      .stats{gap:17px}
+      .section{padding:68px 0}
+      .cards,.steps,.plan-grid{grid-template-columns:1fr}
+      .card{padding:22px}
+      .plan .intro{min-height:0}
+      .footer .container{align-items:flex-start;flex-direction:column}
+    }
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.card{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Austral Growth, inicio">
+        <img class="brand-mark" src="assets/austral-growth-symbol.png" width="180" height="121" alt="">
+        <span>AUSTRAL <span class="grad-text">GROWTH</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+      <nav class="nav-links" id="main-nav" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#planes">Planes</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#contacto" class="btn btn-primary">Trabajemos juntos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Agencia de marketing digital · Sur de Chile</span>
+          <h1>Despertemos<br><span>tu marca.</span></h1>
+          <p>Impulsamos negocios mediante estrategia, contenido y marketing digital. Desde Valdivia para todo Chile.</p>
+          <div class="proof">
+            <a href="https://www.instagram.com/australgrowthlab/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de Austral Growth">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.4 2h9.2C20.2 2 22 3.8 22 7.4v9.2c0 3.6-1.8 5.4-5.4 5.4H7.4C3.8 22 2 20.2 2 16.6V7.4C2 3.8 3.8 2 7.4 2Zm-.3 2A3.1 3.1 0 0 0 4 7.1v9.8A3.1 3.1 0 0 0 7.1 20h9.8a3.1 3.1 0 0 0 3.1-3.1V7.1A3.1 3.1 0 0 0 16.9 4H7.1Zm9.95 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 6.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>
+              @australgrowthlab
+            </a>
+            <span>Empresas valdivianas ya han trabajado con nosotros para hacer crecer su presencia digital.</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contacto">Trabajemos juntos <span aria-hidden="true">→</span></a>
+            <a class="btn btn-secondary" href="#planes">Ver planes</a>
+          </div>
+          <div class="stats" aria-label="Resumen de Austral Growth">
+            <div class="stat"><strong class="grad-text">6</strong><small>Motores de contenido</small></div>
+            <div class="stat"><strong class="grad-text">3</strong><small>Planes para crecer</small></div>
+            <div class="stat"><strong class="grad-text">1:1</strong><small>Estrategia para tu marca</small></div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img class="hero-logo" src="assets/austral-growth-logo.png" width="760" height="552" alt="Logo original de Austral Growth">
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">¿Qué hacemos?</span>
+          <h2>Seis motores de contenido.</h2>
+          <p>Cada pieza tiene una función. Así tu marca crece con intención, no al azar.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="card-index grad-text">01</div><h3>Humor y viralidad</h3><p>Contenido que captura atención y trae alcance nuevo a tu marca.</p></article>
+          <article class="card"><div class="card-index grad-text">02</div><h3>Educación</h3><p>Explicamos lo que haces para construir confianza y autoridad.</p></article>
+          <article class="card"><div class="card-index grad-text">03</div><h3>Confianza y autoridad</h3><p>Mostramos por qué tu negocio es una gran opción en su rubro.</p></article>
+          <article class="card"><div class="card-index grad-text">04</div><h3>Producto y ofertas</h3><p>Contenido pensado para acercar a las personas desde el feed a la venta.</p></article>
+          <article class="card"><div class="card-index grad-text">05</div><h3>Presencia local</h3><p>Conectamos tu marca con Valdivia, su ciudad y su público cercano.</p></article>
+          <article class="card"><div class="card-index grad-text">06</div><h3>Prueba social</h3><p>Clientes, comunidad y resultados que ayudan a convertir con confianza.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proceso">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Cómo trabajamos</span>
+          <h2>De la estrategia al reel, en tres pasos.</h2>
+        </div>
+        <div class="steps">
+          <article class="step"><strong>1</strong><h3>Elegimos el plan</h3><p>Definimos el punto de partida y los objetivos del mes.</p></article>
+          <article class="step"><strong>2</strong><h3>Primera grabación</h3><p>Convertimos la estrategia en contenido real, guionizado y editado.</p></article>
+          <article class="step"><strong>3</strong><h3>Publicamos y medimos</h3><p>Publicamos con calendario y ajustamos con datos, no corazonadas.</p></article>
+        </div>
+        <div class="month">
+          <span>Así puede verse tu mes</span>
+          <div class="chips"><span class="chip"><b>Lunes</b> · Educación</span><span class="chip"><b>Miércoles</b> · Humor</span><span class="chip"><b>Viernes</b> · Oferta</span><span class="chip">Historias diarias</span><span class="chip">Dinámicas semanales</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section plans" id="planes">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Planes mensuales</span>
+          <h2>Contenido que se adapta a tu etapa.</h2>
+          <p>Elige el punto de partida correcto para crecer con intención.</p>
+        </div>
+        <div class="plan-grid">
+          <article class="plan featured">
+            <span class="tag">★ Oferta de nuevos clientes</span>
+            <h3>Plan Inicial</h3>
+            <div class="old-price">Antes $350.000</div>
+            <div class="price">$250.000 <span>+ IVA / mes</span></div>
+            <p class="intro">Exclusivo para negocios o empresas nuevas que eligen Austral Growth.</p>
+            <ul>
+              <li>8 videos mensuales</li>
+              <li>1 jornada de grabación <b>o</b> cobertura de un evento extra</li>
+              <li>Edición optimizada para redes sociales</li>
+              <li>Ideas, conceptos y guiones</li>
+              <li>Enfoque en resultados: más seguidores y mensajes</li>
+            </ul>
+            <a class="btn btn-primary" href="#contacto">Quiero esta oferta</a>
+          </article>
+          <article class="plan">
+            <span class="tag">Esencial</span>
+            <h3>Plan Esencial</h3>
+            <div class="old-price">&nbsp;</div>
+            <div class="price">$300.000 <span>+ IVA / mes</span></div>
+            <p class="intro">Para negocios que ya tienen material y quieren publicar con constancia.</p>
+            <ul>
+              <li>7 videos mensuales</li>
+              <li>Sin jornada de grabación</li>
+              <li>Edición estándar</li>
+            </ul>
+            <a class="btn btn-light" href="#contacto">Elegir plan</a>
+          </article>
+          <article class="plan">
+            <span class="tag">Escala</span>
+            <h3>Plan Escala</h3>
+            <div class="old-price">&nbsp;</div>
+            <div class="price">$500.000 <span>+ IVA / mes</span></div>
+            <p class="intro">Para marcas que buscan sumar acciones comerciales y automatización.</p>
+            <ul>
+              <li>8 videos mensuales</li>
+              <li>2 coberturas de eventos</li>
+              <li>Alianzas y colaboraciones estratégicas</li>
+              <li>Códigos de descuento</li>
+              <li>Automatización de mensajes con ManyChat</li>
+              <li>Jelly incluido</li>
+            </ul>
+            <a class="btn btn-light" href="#contacto">Elegir plan</a>
+          </article>
+        </div>
+        <p class="plan-note">Las jornadas y coberturas se coordinan según ubicación. Las coberturas fuera de la ciudad base se cotizan por separado.</p>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+      <div class="container contact-inner">
+        <div>
+          <span class="eyebrow">Contáctanos</span>
+          <h2>Si quieres llevar tu negocio al siguiente nivel, este es el momento.</h2>
+          <p class="contact-text">Cuéntanos qué quieres lograr y armemos el punto de partida de tu contenido.</p>
+        </div>
+        <div class="contact-people">
+          <aside class="contact-card">
+            <small>Valdivia, Chile</small>
+            <strong>Roberto Garrido</strong>
+            <span class="role">Fundador · Austral Growth</span>
+            <a class="phone" href="tel:+56956613387">+56 9 5661 3387</a>
+            <a class="whatsapp" href="https://wa.me/56956613387" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.55 15.18L2 22l4.96-1.42A10 10 0 1 0 12 2Zm0 18.22a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.94.84.85-2.86-.2-.3A8.19 8.19 0 1 1 12 20.22Zm4.49-6.14c-.25-.13-1.49-.74-1.72-.82-.23-.08-.39-.13-.56.13-.16.25-.64.81-.78.98-.14.16-.29.18-.54.06-1.46-.73-2.42-1.3-3.38-2.95-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.66.3-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.73 2.64 4.18 3.7.58.25 1.04.4 1.39.51.59.19 1.13.16 1.56.1.47-.07 1.49-.61 1.7-1.2.21-.6.21-1.1.15-1.2-.06-.1-.22-.16-.47-.29Z"/></svg>Hablemos por WhatsApp</a>
+          </aside>
+          <aside class="contact-card">
+            <small>Concepción, Chile</small>
+            <strong>Lucas Espinoza</strong>
+            <span class="role">Representante · Austral Growth</span>
+            <a class="phone" href="https://wa.me/56964126927" target="_blank" rel="noopener noreferrer">+56 9 6412 6927</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><span>© 2026 Austral Growth · Valdivia, Chile</span><a href="https://www.instagram.com/australgrowthlab/" target="_blank" rel="noopener noreferrer">@australgrowthlab</a></div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+  </script>
+</body>
+</html>
